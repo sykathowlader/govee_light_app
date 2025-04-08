@@ -7,6 +7,9 @@ function App() {
   const [status, setStatus] = useState("");
   const [currentAudio, setCurrentAudio] = useState(null);
 
+  // Base URL for API calls
+  const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5001";
+
   //setting up the colors
 
   const colors = [
@@ -75,7 +78,7 @@ function App() {
     setStatus("Changing color...");
 
     try {
-      const response = await fetch("http://localhost:5001/change-color", {
+      const response = await fetch(`${API_BASE_URL}/change-color`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +108,7 @@ function App() {
     setStatus("Turning off lights...");
 
     try {
-      const response = await fetch("http://localhost:5001/turn-off", {
+      const response = await fetch(`${API_BASE_URL}/turn-off`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

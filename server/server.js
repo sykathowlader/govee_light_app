@@ -8,6 +8,7 @@ dotenv.config();
 const apiKey1 = process.env.GOVEE_API_KEY1;
 const device1 = process.env.DEVICE_MAC1;
 const model1 = process.env.DEVICE_MODEL;
+const port = process.env.PORT || 5001;
 
 // Device 2 configuration
 const apiKey2 = process.env.GOVEE_API_KEY2;
@@ -17,7 +18,6 @@ const model2 = process.env.DEVICE_MODEL;
 const goveeUrl = "https://developer-api.govee.com/v1/devices/control";
 
 const app = express();
-const port = 5001;
 
 app.use(cors());
 app.use(json());
